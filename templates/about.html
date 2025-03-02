@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Fake News Detection</title>
+    <link rel="icon" href="static/icons8-facebook-ios-16-filled-32.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        color: #333;
+        font-family: "Poppins", sans-serif;
+        background: #f4f4f4;
+      }
+      .hero-section {
+        text-align: center;
+        padding: 100px 20px;
+        background: linear-gradient(to right, #ff512f, #dd2476);
+        color: white;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+      }
+      .content-section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+        color: white;
+        text-align: center;
+      }
+      .card:nth-child(1) {
+        background: linear-gradient(to right, #ff9966, #ff5e62);
+      }
+      .card:nth-child(2) {
+        background: linear-gradient(to right, #56ccf2, #2f80ed);
+      }
+      .card:nth-child(3) {
+        background: linear-gradient(to right, #f2994a, #f2c94c);
+      }
+      .card:nth-child(4) {
+        background: linear-gradient(to right, #9b51e0, #bb6bd9);
+      }
+      .card:nth-child(5) {
+        background: linear-gradient(to right, #27ae60, #219653);
+      }
+      .card:nth-child(6) {
+        background: linear-gradient(to right, #eb5757, #ff7676);
+      }
+      .card:hover {
+        transform: scale(1.05);
+      }
+      .footer {
+        background: #1a1a1a;
+        padding: 20px 0;
+        text-align: center;
+        color: white;
+        margin-top: 50px;
+      }
+      .btn-custom {
+        background: #ffcc00;
+        padding: 12px 24px;
+        font-size: 18px;
+        border-radius: 25px;
+        color: black;
+        font-weight: bold;
+      }
+      .btn-custom:hover {
+        background: #ffaa00;
+      }
+      .navbar {
+        transition: all 0.3s ease-in-out;
+      }
+
+      /* Brand Styling */
+      .navbar-brand {
+        font-size: 1.6rem;
+        font-weight: bold;
+
+        transition: transform 0.3s ease-in-out, color 0.3s;
+      }
+
+      .navbar-brand:hover {
+        transform: scale(1.1);
+        color: #0066ffff !important; /* Gold */
+      }
+
+      /* Nav Links */
+      .nav-link {
+        font-weight: bold;
+        font-size: 1.1rem;
+
+        position: relative;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .nav-link:hover {
+        color: #00ffd9ff !important; /* Gold */
+        transform: translateY(-2px);
+      }
+
+      /* Underline Animation */
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: #ffd700; /* Gold */
+        transition: all 0.3s ease-in-out;
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* Navbar toggler */
+      .navbar-toggler {
+        border: none;
+        outline: none;
+      }
+
+      .navbar-toggler-icon {
+        filter: invert(1);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/">Fake News Detection</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/predict">Prediction</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="hero-section">
+      <h1 class="text-5xl font-extrabold">About Fake News Detection</h1>
+      <p class="mt-4 text-lg">
+        Learn more about our mission, technology, and impact.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <div class="card-container">
+        <div class="card">
+          <h2 class="text-2xl font-semibold">Our Mission</h2>
+          <p class="mt-4 text-lg">
+            Our goal is to combat misinformation by providing an AI-powered tool
+            that helps users verify the authenticity of news articles in real
+            time.
+          </p>
+        </div>
+        <div class="card">
+          <h2 class="text-2xl font-semibold">How It Works</h2>
+          <p class="mt-4 text-lg">
+            We use NLP and Machine Learning models trained on large datasets to
+            analyze credibility.
+          </p>
+        </div>
+        <div class="card">
+          <h2 class="text-2xl font-semibold">Why It Matters</h2>
+          <p class="mt-4 text-lg">
+            Fake news can influence public opinion. Our AI solution promotes an
+            informed society.
+          </p>
+        </div>
+        <div class="card">
+          <h2 class="text-2xl font-semibold">Future Enhancements</h2>
+          <p class="mt-4 text-lg">
+            We plan to integrate multilingual support, improved credibility
+            scoring, and real-time tracking.
+          </p>
+        </div>
+        <div class="card">
+          <h2 class="text-2xl font-semibold">Get Involved</h2>
+          <p class="mt-4 text-lg">
+            Join us in refining our fake news detection models. Researchers and
+            developers can collaborate.
+          </p>
+        </div>
+        <div class="card">
+          <h2 class="text-2xl font-semibold">Reliable AI Solutions</h2>
+          <p class="mt-4 text-lg">
+            Our AI system continuously learns and improves to offer the most
+            accurate detection.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="text-center mt-10">
+      <a href="/predict" class="btn-custom">Try Fake News Detection</a>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2025 Fake News Detection. All rights reserved.</p>
+      <p>
+        Follow us on
+        <a href="#" class="text-yellow-400 hover:text-white">Twitter</a> |
+        <a href="#" class="text-yellow-400 hover:text-white">Facebook</a> |
+        <a href="#" class="text-yellow-400 hover:text-white">Instagram</a>
+      </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

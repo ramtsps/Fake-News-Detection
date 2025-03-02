@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fake News Detection - Prediction</title>
+    <link rel="icon" href="static/icons8-facebook-ios-16-filled-32.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: #eef2f3;
+        color: #333;
+        font-family: "Poppins", sans-serif;
+      }
+      .hero-section {
+        text-align: center;
+        padding: 120px 20px;
+        background: linear-gradient(to right, #007991, #78ffd6);
+        border-radius: 10px;
+        height: 350px;
+        margin-top: 10px;
+        margin-right: 70px;
+        margin-left: 70px;
+        color: white;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+      }
+      .btn-custom {
+        background: #ff9800;
+        transition: 0.3s;
+        padding: 14px 30px;
+        font-size: 20px;
+        border-radius: 30px;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      .btn-custom:hover {
+        background: #e67e22;
+        transform: scale(1.05);
+      }
+      .input-custom {
+        width: 100%;
+        padding: 14px;
+        border-radius: 15px;
+        border: 1px solid #ccc;
+        color: #333;
+        text-align: center;
+        font-size: 16px;
+      }
+      .card-custom {
+        background: white;
+        color: #333;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        width: 50%;
+        margin: 40px auto;
+      }
+      .card-custom:hover {
+        transform: scale(1.02);
+      }
+      .footer {
+        background: #222;
+        padding: 20px 0;
+        text-align: center;
+        color: white;
+        margin-top: 50px;
+      }
+      .navbar {
+        transition: all 0.3s ease-in-out;
+      }
+
+      /* Brand Styling */
+      .navbar-brand {
+        font-size: 1.6rem;
+        font-weight: bold;
+
+        transition: transform 0.3s ease-in-out, color 0.3s;
+      }
+
+      .navbar-brand:hover {
+        transform: scale(1.1);
+        color: #0066ffff !important; /* Gold */
+      }
+
+      /* Nav Links */
+      .nav-link {
+        font-weight: bold;
+        font-size: 1.1rem;
+
+        position: relative;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .nav-link:hover {
+        color: #00ffd9ff !important; /* Gold */
+        transform: translateY(-2px);
+      }
+
+      /* Underline Animation */
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: #ffd700; /* Gold */
+        transition: all 0.3s ease-in-out;
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* Navbar toggler */
+      .navbar-toggler {
+        border: none;
+        outline: none;
+      }
+
+      .navbar-toggler-icon {
+        filter: invert(1);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/">Fake News Detection</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/predict">Prediction</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="hero-section">
+      <h1 class="text-5xl font-extrabold">Fake News Detection</h1>
+      <p class="mt-4 text-lg">
+        Verify the authenticity of news articles with AI-powered analysis.
+      </p>
+    </section>
+
+    <div class="container mx-auto mt-10 text-center">
+      <div class="card-custom">
+        <h2 class="text-3xl font-semibold">Enter News Headline</h2>
+        <p class="text-lg text-gray-600 mb-4">
+          Type a news headline below to check if it's real or fake.
+        </p>
+        <form action="/predict" method="POST" class="mt-6">
+          <input
+            type="text"
+            name="news"
+            placeholder="Type your news headline here..."
+            class="input-custom"
+            required
+          />
+          <button type="submit" class="mt-6 btn-custom text-white">
+            Predict
+          </button>
+        </form>
+        <p class="mt-6 text-lg font-bold text-green-600">
+          {{ prediction_text }}
+        </p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2025 Fake News Detection. All rights reserved.</p>
+      <p>
+        Follow us on
+        <a href="#" class="text-orange-400 hover:text-white">Twitter</a> |
+        <a href="#" class="text-orange-400 hover:text-white">Facebook</a> |
+        <a href="#" class="text-orange-400 hover:text-white">Instagram</a>
+      </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
