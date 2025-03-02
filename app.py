@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 91c34b24daf1af4c4edcb5cc2775ad21b757bd1f
 
 
 from flask import Flask, render_template, request
