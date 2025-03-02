@@ -16,9 +16,7 @@ from matplotlib import pyplot as plt
 from sklearn.linear_model import PassiveAggressiveClassifier
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('wordnet')
+
 app = Flask(__name__,template_folder='./templates',static_folder='./static')
 
 loaded_model = pickle.load(open("model.pkl", 'rb'))
